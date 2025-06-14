@@ -4,7 +4,7 @@
 <!-- load wagtailcore_tags by adding this: -->
 {% load wagtailcore_tags wagtailimages_tags %}
 
-{% block body_class %}template-homepage{% endblock %}
+{% block body_class %}template-topicmainpage{% endblock %}
 
 
 {% block content %}
@@ -35,28 +35,20 @@
 
                     {{ page.body|richtext }}
 
-
-                    {% for topic_page in latest_topic_pages %}
-
-
-
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="{{ topic_page.url }}">
-
-                            <h2 class="post-title">{{ topic_page.title }}</h2>
-                            <h3 class="post-short-decription">{{ topic_page.get_body_preview }}</h3>
+                        <a href="post.html">
+                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
+                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
                         </a>
                         <p class="post-meta">
                             Posted by
                             <a href="#!">Start Bootstrap</a>
-                            on {{ topic_page.date }}
+                            on September 24, 2023
                         </p>
                     </div>
                     <!-- Divider-->
                     <hr class="my-4" />
-
-                    {% endfor %}
 
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
