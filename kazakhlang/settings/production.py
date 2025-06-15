@@ -1,8 +1,28 @@
+from django.conf.global_settings import SESSION_COOKIE_SECURE
+
 from .base import *
+
+
+
+
+DEBUG = False
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = False
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+SECURE_SSL_REDIRECT = True
+
+ALLOWED_HOSTS= os.getenv("DJANGO_ALLOWED_HOSTS", "*").split(",")
+
+CSRF_TRUSTED_ORIGINS = os.getenv("DJANGO_CSRF_TRUSTED_ORIGINS", "").split(",")
+
+SECURE_HSTS_SECONDS = 2592000
+
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+SESSION_COOKIE_SECURE=True
 
 try:
     from .local import *
