@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <p class="meta">{{ page.date }}</p>
+
 
     <!-- Page Header-->
         <header class="masthead" style="background-image: url('{{ parent_page.background_image.file.url }}')">
@@ -18,9 +18,7 @@
                             <h1>{{ page.title }}</h1>
 {#                            <h2 class="subheading">Problems look mighty small from 150 miles up</h2>#}
                             <span class="meta">
-                                Posted by
-                                <a href="#!">Start Bootstrap</a>
-                                on {{ page.date }}
+                                Posted on {{ page.date }}
                             </span>
                         </div>
                     </div>
@@ -35,11 +33,12 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         {{ page.body|richtext }}
+                        <p><a href="{{ page.get_parent.url }}">Return to {{ page.get_parent.title }}</a></p>
                     </div>
                 </div>
             </div>
         </article>
 
-    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+
 
 {% endblock %}
