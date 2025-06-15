@@ -1,3 +1,5 @@
+import os
+
 from django.conf.global_settings import SESSION_COOKIE_SECURE, CSRF_COOKIE_SECURE
 
 from .base import *
@@ -27,6 +29,17 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 
 SESSION_COOKIE_SECURE=True
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("POSTGRES_NAME"),
+        "USER": os.getenv("POSTGRES_USER"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "HOST": os.getenv("POSTGRES_HOST"),
+        "PORT": os.getenv("POSTGRES_PORT"),
+    }
+}
 
 STORAGES = {
     "default": {
