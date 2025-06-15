@@ -1,4 +1,4 @@
-from django.conf.global_settings import SESSION_COOKIE_SECURE
+from django.conf.global_settings import SESSION_COOKIE_SECURE, CSRF_COOKIE_SECURE
 
 from .base import *
 
@@ -18,6 +18,8 @@ SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS= os.getenv("DJANGO_ALLOWED_HOSTS", "*").split(",")
 
 CSRF_TRUSTED_ORIGINS = os.getenv("DJANGO_CSRF_TRUSTED_ORIGINS", "").split(",")
+
+CSRF_COOKIE_SECURE=True
 
 SECURE_HSTS_SECONDS = 2592000
 
