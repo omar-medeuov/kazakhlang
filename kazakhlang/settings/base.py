@@ -18,8 +18,17 @@ from dotenv import load_dotenv
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
-load_dotenv(os.path.join(PROJECT_DIR, '.env'))
 
+# load_dotenv returns a bool. Will use it to output whether .env was loaded
+# successfully or not.
+loaded = load_dotenv(os.path.join(PROJECT_DIR, '.env'))
+
+if loaded:
+    print(".env file loaded successfully.")
+    print("DJANGO_SETTINGS_MODULE = ", os.getenv("DJANGO_SETTINGS_MODULE"))
+
+else:
+    print(".env file not loaded. Either not present or incorrect configuration.")
 
 
 # Quick-start development settings - unsuitable for production
